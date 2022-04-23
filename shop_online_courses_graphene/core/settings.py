@@ -37,6 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Local apps
+    'accounts.apps.AccountsConfig',
+    'courses.apps.CoursesConfig',
+    'comments.apps.CommentsConfig',
+    'orders.apps.OrdersConfig',
+    'payments.apps.PaymentsConfig',
+    'teachers.apps.TeacherConfig',
+    'tickets.apps.TicketsConfig',
+
+    #Third-partt apps
+    "graphene_django",
 ]
 
 MIDDLEWARE = [
@@ -80,6 +91,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'accounts.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -123,3 +135,8 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+GRAPHENE = {
+    "SCHEMA": "core.schema.schema"
+}
